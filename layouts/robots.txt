@@ -1,0 +1,13 @@
+{{- /* The HugoBlox modules ship a robots.txt that advertises only the user
+       site's own sitemap. This override keeps that line exactly as the module
+       renders it and adds the TBO project page, which is a separate Search
+       Console property with its own sitemap. A robots.txt may list any number
+       of sitemaps.
+
+       Do not replace the first Sitemap line with a range over the .Sitemaps
+       collection: rendered with Hugo 0.136.5 that produced an empty file, which
+       would silently drop the user site's own sitemap. */ -}}
+User-agent: *
+
+Sitemap: {{ "sitemap.xml" | absURL }}
+Sitemap: https://wachin.github.io/TBO/sitemap.xml
